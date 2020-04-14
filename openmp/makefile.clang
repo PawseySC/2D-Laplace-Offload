@@ -1,5 +1,5 @@
 CC=clang
-CFLAGS=-O3 -fopenmp-targets=nvptx64-nvidia-cuda -Xopenmp-target -march=sm_70 -fopenmp
+CFLAGS=-O3 -fopenmp-targets=nvptx64-nvidia-cuda -fopenmp
 LIBS=-lm
 OBJ=laplace_mp.o
 TARGET=laplace_mp
