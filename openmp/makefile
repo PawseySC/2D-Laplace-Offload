@@ -1,0 +1,14 @@
+CC=clang
+CFLAGS=-O3 -fopenmp-targets=nvptx64-nvidia-cuda -Xopenmp-target -march=sm_70 -fopenmp
+LIBS=-lm
+OBJ=laplace_mp.o
+TARGET=laplace_mp
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c -o $@ $<
+
+$(TARGET): $(OBJ)
+	$(CC) $(CFLAGS) $(LIBS) -o $@ $^
+
+clean:
+	rm -f $(TARGET) *.o
